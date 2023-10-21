@@ -1,0 +1,71 @@
+/* styles.css */
+
+/* ... (other styles) ... */
+
+/* Style the card */
+.card {
+    width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);;
+    background-color: #fff;
+}
+
+/* Style card header */
+.card-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style form labels */
+.form-group label {
+    font-weight:none;
+}
+
+/* Style form inputs */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0px 0px 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Style buttons */
+.btn-primary,
+.btn-secondary {
+    width: 45%; /* Each button takes 45% width */
+    margin-right: 5px; /* Add margin between buttons */
+}
+
+/* Center form elements within the card body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+}
+
+/* ... (other styles) ... */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
