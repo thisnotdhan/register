@@ -14,10 +14,7 @@ if ($conn->connect_error) {
 $sql = "CREATE DATABASE IF NOT EXISTS interns_management";
 if ($conn->query($sql) !== TRUE) {
     echo "Error creating database: " . $conn->error . "<br>";
-} else {
-    echo "Database created successfully<br>";
 }
-
 $conn->close();
 
 // Create a new connection to the database
@@ -45,8 +42,6 @@ $sql = "CREATE TABLE IF NOT EXISTS interns_profile (
 
 if ($conn->query($sql) !== TRUE) {
     echo "Error creating table: " . $conn->error;
-} else {
-    echo "Table interns_profile created successfully<br>";
 }
 
 // Create the interns_account table with a foreign key reference
@@ -60,8 +55,6 @@ $sql = "CREATE TABLE IF NOT EXISTS interns_account (
 
 if ($conn->query($sql) !== TRUE) {
     echo "Error creating table: " . $conn->error;
-} else {
-    echo "Table interns_account created successfully<br>";
 }
 
 $conn->close();
@@ -82,17 +75,17 @@ $conn->close();
 </head>
 
 <body>
-    <div class="container">
-        <div class="card d-flex flex-column justify-content-between flex-wrap gap-1" style="padding: 3rem 2rem; padding-left:3rem;">
+    <div class="container p-3">
+        <div class="card d-flex flex-column justify-content-between flex-wrap gap-1 shadow" style="padding: 3rem 2rem; padding-left:3rem;">
             <div class="card-header">
                 <h2>Registration</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body d-flex">
                 <form id="registration-form" action="register_process.php" method="post">
                     <!-- Page 1: Personal Information -->
 
                     <div class="form-page" id="page-1">
-                        <div class="form-group d-flex flex-row justify-content-between gap-5" style="width:50%;">
+                        <div class="form-group d-flex flex-row justify-content-between gap-5">
                             <span class="d-flex flex-column" style="width:49%;">
                                 <label for="name">First Name</label>
                                 <input type="text" id="name" name="name" class="form-control" required>
@@ -103,14 +96,16 @@ $conn->close();
                                 <input type="text" id="name" name="name" class="form-control" required>
                             </span>
                         </div>
+                        <div class="form-group d-flex flex-row gap-5">
+                            <span class="d-flex flex-column" style="width:50%;">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" class="form-control" required>
+                            </span>
+                            <span class="d-flex flex-column" style="width:50%;">
+                                <label for="birthday">Birthday</label>
+                                <input type="date" id="birthday" name="birthday" class="form-control" required>
+                            </span>
 
-                        <div class="form-group d-flex flex-column">
-                            <label for="age">Age</label>
-                            <input type="number" id="age" name="age" class="form-control" required>
-                        </div>
-                        <div class="form-group d-flex flex-column">
-                            <label for="birthday">Birthday</label>
-                            <input type="date" id="birthday" name="birthday" class="form-control" required>
                         </div>
                         <div class="form-group d-flex flex-column">
                             <label for="contact-number">Contact Number</label>
@@ -126,8 +121,8 @@ $conn->close();
                         </div>
                         <span>
                             <div class="form-group">
-                                <label for="gender">Gender</label>
-                                <div class="form-check d-flex flex-row justify-content-between" style="padding:1rem 3rem; padding-left:1rem;">
+                                <label for="gender">Sex</label>
+                                <div class="form-check d-flex flex-row gap-5">
                                     <span>
                                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                                         <label class="form-check-label" for="exampleRadios1">
@@ -141,7 +136,10 @@ $conn->close();
                                         </label></span>
                                 </div>
                         </span>
-                        <button type="button" class="btn btn-primary next-page" data-next="page-2">Next</button>
+                        <div class="d-flex justify-content-end mt-5">
+                            <button type="button" class="btn btn-primary next-page" data-next="page-2">Next</button>
+                        </div>
+
                     </div>
 
 
@@ -182,6 +180,12 @@ $conn->close();
                     </div>
 
                 </form>
+                <span>
+                    <div class="d-flex flex-row">
+                        <img class="img-fluid" src="https://th.bing.com/th/id/OIP.j_Q3KTsWwEgFiJeHVlz6NgHaJ4?pid=ImgDet&rs=1">
+                    </div>
+                </span>
+
             </div>
         </div>
     </div>
